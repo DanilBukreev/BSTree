@@ -12,6 +12,8 @@ class Tree {
   Tree();
   void add_node(int key, Node *&root);
   void insert(int key);
+  void showTree(Node* node,int field);
+  void show();
   ~Tree();
 };
 }
