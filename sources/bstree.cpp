@@ -31,6 +31,8 @@ void Tree::add_node(int key, Node*& root) {
   }
 }
 
+bool Tree::zero() { return (root == nullptr ? true : false); }
+
 void Tree::insert(int key) { add_node(key, root); }
 
 void Tree::showTree(Node* node, int field) {
@@ -48,6 +50,46 @@ void Tree::showTree(Node* node, int field) {
     }
   }
 }
+
+void Tree::InOrderTree(Node* node) {
+  if (root != nullptr) {
+    if (node->left != nullptr) {
+      InOrderTree(node->left);
+    }
+    cout << node->key << " ";
+    if (node->right != nullptr) {
+      InOrderTree(node->right);
+    }
+  }
+}
+
+void Tree::PreOrderTree(Node* node) {
+  if (root != nullptr) {
+    cout << node->key << " ";
+    if (node->left != nullptr) {
+      PreOrderTree(node->left);
+    }
+    if (node->right != nullptr) {
+      PreOrderTree(node->right);
+    }
+  }
+}
+
+void Tree::PostOrderTree(Node* node) {
+  if (root != nullptr) {
+    if (node->left != nullptr) {
+      PostOrderTree(node->left);
+    }
+    if (node->right != nullptr) {
+      PostOrderTree(node->right);
+    }
+    cout << node->key << " ";
+  }
+}
+void Tree::InOrder() { InOrderTree(root); }
+void Tree::PreOrder() { PreOrderTree(root); }
+void Tree::PostOrder() { PostOrderTree(root); }
+
 void Tree::remove(Node*& node) {
   if (node == nullptr) return;
   if (node->left != nullptr) remove(node->left);
@@ -62,3 +104,4 @@ void Tree::show() {
     cout << "nothing to show" << endl;
 }
 Tree::~Tree() { remove(root); }
+
