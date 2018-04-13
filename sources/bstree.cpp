@@ -90,6 +90,31 @@ void Tree::InOrder() { InOrderTree(root); }
 void Tree::PreOrder() { PreOrderTree(root); }
 void Tree::PostOrder() { PostOrderTree(root); }
 
+void Tree::WriteInFile(Node *root, std::string name)  {
+    ofstream fout(name, ios::app);
+    if (root == nullptr)
+        return;
+    WriteInFile(root->right, name);
+    fout << root->data << endl;
+    WriteInFile(root->left, name);
+    fout.close();
+}
+
+void Tree::Write()  {
+    string name;
+    cout << "Введите название файла:";
+    cin >> name;
+   */ ifstream fin(name, ios_base::in);
+    string ch_3 = "y";
+    if (fin.is_open()) {
+        cout << "Вы хотите переписать файл? Да" << endl;
+        cin >> ch_3;
+    } */
+    fin.close();
+    WriteInFile(root, name);
+}
+
+
 void Tree::remove(Node*& node) {
   if (node == nullptr) return;
   if (node->left != nullptr) remove(node->left);
