@@ -12,6 +12,7 @@ class Tree {
   void PreOrderTree(Node* node);
   void InOrderTree(Node* node);
   void PostOrderTree(Node* node);
+  void WriteInFile(Node *root,  std::string name);
 
  public:
   Tree();
@@ -21,6 +22,7 @@ class Tree {
   void PreOrder();
   void InOrder();
   void PostOrder();
+  void Write();
   ~Tree();
 };
 }
