@@ -100,18 +100,21 @@ void Tree::WriteInFile(Node *root, std::string name)  {
     fout.close();
 }
 
-void Tree::Write()  {
-    string name;
-    cout << "Введите название файла:";
-    cin >> name;
-   /* ifstream fin(name, ios_base::in);
-    string ch_3 = "y";
-    if (fin.is_open()) {
-        cout << "Вы хотите переписать файл? Да" << endl;
-        cin >> ch_3;
-    } 
-    fin.close(); */
+void Tree::Write() {
+  string name;
+  cout << "Введите название файла:";
+  cin >> name;
+  ifstream fin(name, ios_base::in);
+  string ch_3;
+  if (fin.is_open()) {
+    cout << "Вы хотите переписать файл? Да/Нет" << endl;
+    cin >> ch_3;
+  }
+  fin.close();
+  if ((ch_3 == "y") || (ch_3 == "Да") || (ch_3 == "Нет") || (ch_3 == "да") ||
+      (ch_3 == "нет")) {
     WriteInFile(root, name);
+  }
 }
 
 
